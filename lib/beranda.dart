@@ -48,15 +48,22 @@ class _BerandaHotelState extends State<BerandaHotel> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3),
                 itemBuilder: (context, index) {
-                  return MongoDataCard(
-                      user: (snapshot.data[index]['user']),
-                      email: (snapshot.data[index]['email']),
-                      coinName: (snapshot.data[index]['coinName']),
-                      coinId: (snapshot.data[index]['coinId']),
-                      coinImg: (snapshot.data[index]['coinImg']),
-                      dateTaken: (snapshot.data[index]['dateTaken'])
-                      // MongoDbModel.fromJson(snapshot.data[index]),
-                      );
+                  return HotelDataCard(
+                    kamarName: (_kamars[index]['kamarName']),
+                    kamarImg: (_kamars[index]['kamarImg']),
+                    kamarHarga: (_kamars[index]['kamarHarga']),
+                    kamarType: (_kamars[index]['kamarType']),
+                    kamarDeskripsi: (_kamars[index]['kamarDeskripsi']),
+                  );
+                  // return MongoDataCard(
+                  //     user: (snapshot.data[index]['user']),
+                  //     email: (snapshot.data[index]['email']),
+                  //     coinName: (snapshot.data[index]['coinName']),
+                  //     coinId: (snapshot.data[index]['coinId']),
+                  //     coinImg: (snapshot.data[index]['coinImg']),
+                  //     dateTaken: (snapshot.data[index]['dateTaken'])
+                  //     // MongoDbModel.fromJson(snapshot.data[index]),
+                  //     );
                 },
               ),
             )

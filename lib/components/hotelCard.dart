@@ -2,31 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class HotelDataCard extends StatelessWidget {
-  final _mongoDb = MongoDatabase();
-  String user;
-  String email;
-  String coinName;
-  String coinId;
-  String coinImg;
-  String dateTaken;
+  String kamarName;
+  String kamarImg;
+  String kamarHarga;
+  String kamarType;
+  String kamarDeskripsi;
+
 
   HotelDataCard({
-    required this.user,
-    required this.email,
-    required this.coinName,
-    required this.coinId,
-    required this.coinImg,
-    required this.dateTaken,
+    required this.kamarName,
+    required this.kamarImg,
+    required this.kamarHarga,
+    required this.kamarType,
+    required this.kamarDeskripsi,
   });
 
   Color mainColor = Color(0xFF232343);
   Color secColor = Color(0xFF353666);
   Color tileColor = Color(0xFF5355a2);
   Color boxColor = Color(0xFFBCBEDC);
-
-  checkDupes() async {
-    var delete = await _mongoDb.checkDuplicateDel(email, coinId);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +34,11 @@ class HotelDataCard extends StatelessWidget {
           onTap: () {
             _dialogBuilder(
               context,
-              user,
-              email,
-              coinImg,
-              coinName,
-              dateTaken,
+              kamarName,
+              kamarImg,
+              kamarHarga,
+              kamarType,
+              kamarDeskripsi,
             );
           },
           child: Container(
@@ -65,7 +59,7 @@ class HotelDataCard extends StatelessWidget {
                     width: 90,
                     child: Padding(
                       padding: EdgeInsets.all(10),
-                      child: Image.network(coinImg),
+                      child: Image.network(kamarImg),
                     ),
                   ),
                 ),
@@ -170,9 +164,7 @@ class HotelDataCard extends StatelessWidget {
                   height: 15,
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    checkDupes();
-                  },
+                  onPressed: () {},
                   child: Text("Delete"),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
