@@ -3,16 +3,14 @@ import 'package:hotel_flutter/settings/sql_helper.dart';
 import 'components/kamarCard.dart';
 import 'components/mainAppBar.dart';
 
-Color secColor = Color.fromRGBO(250, 235, 239, 1);
-
-class BerandaHotel extends StatefulWidget {
-  BerandaHotel({Key? key}) : super(key: key);
+class BerandaHotel2 extends StatefulWidget {
+  BerandaHotel2({Key? key}) : super(key: key);
 
   @override
-  State<BerandaHotel> createState() => _BerandaHotelState();
+  State<BerandaHotel2> createState() => _BerandaHotel2State();
 }
 
-class _BerandaHotelState extends State<BerandaHotel> {
+class _BerandaHotel2State extends State<BerandaHotel2> {
   List<Map<String, dynamic>> _kamars = [];
   bool _isloading = true;
   late var nilaikamar = _kamars.length;
@@ -46,13 +44,13 @@ class _BerandaHotelState extends State<BerandaHotel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: secColor,
+      backgroundColor: Colors.green,
       body: SafeArea(
         child: CustomScrollView(
           slivers: <Widget>[
             SliverToBoxAdapter(
               child: MainAppBar(
-                title: "Purnama Hotel",
+                title: "Favorite",
                 subtitle: "Milik ",
               ),
             ),

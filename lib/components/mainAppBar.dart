@@ -1,6 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+Color mainColor = Color.fromRGBO(35, 33, 83, 1);
+Color secColor = Color.fromRGBO(250, 235, 239, 1);
+Color tileColor = Color(0xFF5355a2);
+Color boxColor = Color(0xFFBCBEDC);
+const bgColor = Color(0xFF212332);
 
 class MainAppBar extends StatelessWidget with PreferredSizeWidget {
   String title;
@@ -14,56 +21,33 @@ class MainAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        // padding: const EdgeInsets.symmetric(horizontal: 5.0),
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                  color: Colors.white.withOpacity(.64),
-                  fontWeight: FontWeight.w400,
-                  fontSize: 18),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400),
+      // padding: const EdgeInsets.symmetric(horizontal: 5.0),
+
+      child: Container(
+        decoration: BoxDecoration(
+          color: mainColor,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                title,
+                style: GoogleFonts.beVietnamPro(
+                  fontSize: 30,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
                 ),
-                (title == "Home")
-                    ? IconButton(
-                        onPressed: () {
-                          // AuthService().signOutFromGoogle();
-                        },
-                        icon: Icon(
-                          size: 25,
-                          Icons.logout,
-                          color: Colors.white,
-                        ),
-                      )
-                    : IconButton(
-                        onPressed: () {
-                        
-                        },
-                        icon: Icon(
-                          size: 25,
-                          Icons.star,
-                          color: Colors.white,
-                        ),
-                      )
-              ],
-            )
-          ],
+              ),
+              SizedBox(
+                height: 8,
+              ),
+            ],
+          ),
         ),
       ),
     );
