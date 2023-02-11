@@ -8,7 +8,6 @@ class HotelDataCard extends StatelessWidget {
   String kamarType;
   String kamarDeskripsi;
 
-
   HotelDataCard({
     required this.kamarName,
     required this.kamarImg,

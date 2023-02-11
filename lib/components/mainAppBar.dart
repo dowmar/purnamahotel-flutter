@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
 class MainAppBar extends StatelessWidget with PreferredSizeWidget {
   String title;
   String subtitle;
@@ -54,7 +53,7 @@ class MainAppBar extends StatelessWidget with PreferredSizeWidget {
                       )
                     : IconButton(
                         onPressed: () {
-                          // AuthService().signOutFromGoogle();
+                        
                         },
                         icon: Icon(
                           size: 25,

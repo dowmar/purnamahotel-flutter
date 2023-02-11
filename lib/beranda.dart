@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_flutter/settings/sql_helper.dart';
-import 'components/hotelCard.dart';
+import 'components/kamarCard.dart';
 import 'components/mainAppBar.dart';
 
 class BerandaHotel extends StatefulWidget {
@@ -22,6 +22,11 @@ class _BerandaHotelState extends State<BerandaHotel> {
     });
   }
 
+  void addItems() {
+    SQLHelper.createItem(
+        "kamarName", "kamarImg", "kamarHarga", "kamarType", "kamarDeskripsi");
+  }
+
   @override
   void initState() {
     super.initState();
@@ -32,7 +37,7 @@ class _BerandaHotelState extends State<BerandaHotel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.red,
       body: SafeArea(
         child: CustomScrollView(
           slivers: <Widget>[
@@ -43,30 +48,47 @@ class _BerandaHotelState extends State<BerandaHotel> {
               ),
             ),
             SliverToBoxAdapter(
-              child: GridView.builder(
-                itemCount: _kamars.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3),
-                itemBuilder: (context, index) {
-                  return HotelDataCard(
-                    kamarName: (_kamars[index]['kamarName']),
-                    kamarImg: (_kamars[index]['kamarImg']),
-                    kamarHarga: (_kamars[index]['kamarHarga']),
-                    kamarType: (_kamars[index]['kamarType']),
-                    kamarDeskripsi: (_kamars[index]['kamarDeskripsi']),
-                  );
-                  // return MongoDataCard(
-                  //     user: (snapshot.data[index]['user']),
-                  //     email: (snapshot.data[index]['email']),
-                  //     coinName: (snapshot.data[index]['coinName']),
-                  //     coinId: (snapshot.data[index]['coinId']),
-                  //     coinImg: (snapshot.data[index]['coinImg']),
-                  //     dateTaken: (snapshot.data[index]['dateTaken'])
-                  //     // MongoDbModel.fromJson(snapshot.data[index]),
-                  //     );
-                },
+              child: SizedBox(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height / 1.3,
+                child: ListView.builder(
+                  itemCount: _kamars.length,
+                  // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //     crossAxisCount: 3),
+                  itemBuilder: (context, index) {
+                    return HotelDataCard(
+                      kamarName: (_kamars[index]['kamarName']),
+                      kamarImg: (_kamars[index]['kamarImg']),
+                      kamarHarga: (_kamars[index]['kamarHarga']),
+                      kamarType: (_kamars[index]['kamarType']),
+                      kamarDeskripsi: (_kamars[index]['kamarDeskripsi']),
+                    );
+                  },
+                ),
               ),
-            )
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                child: ElevatedButton(
+                  child: Text('TEst'),
+                  onPressed: () {
+                    // addItems();
+                    print(_kamars.toString());
+                  },
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                child: ElevatedButton(
+                  child: Text('test'),
+                  onPressed: () {
+                    // addItems();
+                    print(_kamars.toString());
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
