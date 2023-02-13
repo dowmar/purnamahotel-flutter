@@ -54,8 +54,9 @@ class HotelDataCard extends StatelessWidget {
                     height: 60,
                     width: 60,
                     child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Image.network(kamarImg),
+                      padding: EdgeInsets.all(15),
+                      child: Image.network(
+                          "https://www.w3schools.com/w3images/avatar2.png"),
                     ),
                   ),
                 ),

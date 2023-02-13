@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hotel_flutter/settings/sql_helper.dart';
 import 'components/kamarCard.dart';
 import 'components/mainAppBar.dart';
@@ -56,6 +57,71 @@ class _BerandaHotelState extends State<BerandaHotel> {
                 subtitle: "Milik ",
               ),
             ),
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 300,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsetsDirectional.symmetric(
+                            horizontal: 8, vertical: 8),
+                        child: Container(
+                          padding: const EdgeInsets.all(12),
+                          height: 280,
+                          width: 255,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: secColor,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.15),
+                                offset: Offset(3.0, 3.0),
+                                blurRadius: 24.0,
+                                spreadRadius: 0.0,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 164,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  // color: Colors.white,
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(
+                                        'https://purnamabaligehotel.com/wp-content/uploads/2023/02/IMG_0526-1536x1024.png'),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 18,
+                              ),
+                              Flexible(
+                                child: Text(
+                                  'ABCsaadafasdfadfsafasdfaasdasdasdfasdfasdfasdfxxxxxx',
+                                  style: GoogleFonts.beVietnamPro(
+                                    fontSize: 20,
+                                    color: mainColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            )),
             SliverToBoxAdapter(
               child: Container(
                 child: ElevatedButton(

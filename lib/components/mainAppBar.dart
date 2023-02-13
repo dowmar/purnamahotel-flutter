@@ -25,7 +25,7 @@ class MainAppBar extends StatelessWidget with PreferredSizeWidget {
 
       child: Container(
         decoration: BoxDecoration(
-          color: mainColor,
+          color: secColor,
         ),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -38,13 +38,56 @@ class MainAppBar extends StatelessWidget with PreferredSizeWidget {
               Text(
                 title,
                 style: GoogleFonts.beVietnamPro(
-                  fontSize: 30,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 26,
+                  color: mainColor,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               SizedBox(
-                height: 8,
+                height: 16,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 51,
+                    width: 51,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.lightBlue,
+                      image: DecorationImage(
+                        image: NetworkImage(
+                            "https://www.w3schools.com/w3images/avatar2.png"),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Welcome Back@',
+                        style: GoogleFonts.beVietnamPro(
+                          fontSize: 20,
+                          color: mainColor,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        '27 Feb 2023',
+                        style: GoogleFonts.beVietnamPro(
+                          fontSize: 14,
+                          color: mainColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  )
+                ],
               ),
             ],
           ),
