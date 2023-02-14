@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_flutter/gallery.dart';
+import 'package:hotel_flutter/kamarlist.dart';
+import 'package:hotel_flutter/profile.dart';
 
 import '../beranda.dart';
-import '../beranda2.dart';
 
 class NavBottom extends StatefulWidget {
   const NavBottom({Key? key}) : super(key: key);
@@ -13,7 +15,9 @@ class NavBottomState extends State<NavBottom> {
   int selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
     BerandaHotel(),
-    BerandaHotel2(),
+    KamarList(),
+    KamarGallery(),
+    Profile()
   ];
   List<IconData> data = [
     Icons.home_outlined,
@@ -22,6 +26,9 @@ class NavBottomState extends State<NavBottom> {
     Icons.favorite_outline_sharp,
     Icons.person_outline_sharp
   ];
+
+  Color mainColor = Color.fromRGBO(35, 33, 83, 1);
+  Color secColor = Color.fromRGBO(250, 235, 239, 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +44,11 @@ class NavBottomState extends State<NavBottom> {
                 Radius.circular(20),
               ),
               child: BottomNavigationBar(
-                selectedItemColor: Colors.white,
+                selectedItemColor: mainColor,
                 unselectedItemColor: Colors.grey,
                 showSelectedLabels: true,
                 showUnselectedLabels: false,
-                backgroundColor: Colors.black,
+                // backgroundColor: Colors.red,
                 currentIndex: selectedIndex,
                 onTap: (int index) {
                   setState(() {
@@ -58,8 +65,12 @@ class NavBottomState extends State<NavBottom> {
                     label: "Kamar",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.person_outline_sharp),
-                    label: "Profile",
+                    icon: Icon(Icons.image_outlined),
+                    label: "Gallery",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.info_outline),
+                    label: "About Us",
                   ),
                 ],
               ),

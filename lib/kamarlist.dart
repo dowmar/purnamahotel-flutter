@@ -3,14 +3,14 @@ import 'package:hotel_flutter/settings/sql_helper.dart';
 import 'components/kamarCard.dart';
 import 'components/mainAppBar.dart';
 
-class BerandaHotel2 extends StatefulWidget {
-  BerandaHotel2({Key? key}) : super(key: key);
+class KamarList extends StatefulWidget {
+  KamarList({Key? key}) : super(key: key);
 
   @override
-  State<BerandaHotel2> createState() => _BerandaHotel2State();
+  State<KamarList> createState() => _KamarListState();
 }
 
-class _BerandaHotel2State extends State<BerandaHotel2> {
+class _KamarListState extends State<KamarList> {
   List<Map<String, dynamic>> _kamars = [];
   bool _isloading = true;
   late var nilaikamar = _kamars.length;
@@ -44,33 +44,33 @@ class _BerandaHotel2State extends State<BerandaHotel2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: secColor,
       body: SafeArea(
         child: CustomScrollView(
           slivers: <Widget>[
             SliverToBoxAdapter(
               child: MainAppBar(
-                title: "Favorite",
-                subtitle: "Milik ",
+                title: "Kamar List",
+             
               ),
             ),
-            SliverToBoxAdapter(
-              child: Container(
-                child: ElevatedButton(
-                  child: Text('TEst'),
-                  onPressed: () async {
-                    // addItems();
-                    deleteItems(4);
-                    _refreshKamars();
-                    print(_kamars.toString());
-                  },
-                ),
-              ),
-            ),
+            // SliverToBoxAdapter(
+            //   child: Container(
+            //     child: ElevatedButton(
+            //       child: Text('abc'),
+            //       onPressed: () async {
+            //         // addItems();
+            //         deleteItems(3);
+            //         _refreshKamars();
+            //         print(_kamars.toString());
+            //       },
+            //     ),
+            //   ),
+            // ),
             SliverToBoxAdapter(
               child: SizedBox(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height / 1.6,
+                height: MediaQuery.of(context).size.height / 1.4,
                 child: ListView.builder(
                   itemCount: nilaikamar,
                   // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -87,18 +87,19 @@ class _BerandaHotel2State extends State<BerandaHotel2> {
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Container(
-                child: ElevatedButton(
-                  child: Text('test'),
-                  onPressed: () {
-                    // addItems();
-                    deleteItems(4);
-                    print(_kamars.toString());
-                  },
-                ),
-              ),
-            ),
+            // SliverToBoxAdapter(
+            //   child: Container(
+            //     child: ElevatedButton(
+            //       child: Text('test'),
+            //       onPressed: () {
+            //         // addItems();
+            //         // deleteItems(4);
+            //         // SQLHelper.insertData();
+            //         print(_kamars.toString());
+            //       },
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

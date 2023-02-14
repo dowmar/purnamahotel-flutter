@@ -11,11 +11,9 @@ const bgColor = Color(0xFF212332);
 
 class MainAppBar extends StatelessWidget with PreferredSizeWidget {
   String title;
-  String subtitle;
 
   MainAppBar({
     required this.title,
-    required this.subtitle,
   });
 
   @override
@@ -46,49 +44,53 @@ class MainAppBar extends StatelessWidget with PreferredSizeWidget {
               SizedBox(
                 height: 16,
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 51,
-                    width: 51,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: Colors.lightBlue,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            "https://www.w3schools.com/w3images/avatar2.png"),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Welcome Back@',
-                        style: GoogleFonts.beVietnamPro(
-                          fontSize: 20,
-                          color: mainColor,
-                          fontWeight: FontWeight.w600,
+              title == "Purnama Hotel"
+                  ? (Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 51,
+                          width: 51,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: Colors.lightBlue,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://www.w3schools.com/w3images/avatar2.png"),
+                            ),
+                          ),
                         ),
-                      ),
-                      Text(
-                        '27 Feb 2023',
-                        style: GoogleFonts.beVietnamPro(
-                          fontSize: 14,
-                          color: mainColor,
-                          fontWeight: FontWeight.w400,
+                        SizedBox(
+                          width: 16,
                         ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Welcome Back@',
+                              style: GoogleFonts.beVietnamPro(
+                                fontSize: 20,
+                                color: mainColor,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Text(
+                              '27 Feb 2023',
+                              style: GoogleFonts.beVietnamPro(
+                                fontSize: 14,
+                                color: mainColor,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ))
+                  : (SizedBox(
+                      width: 16,
+                    )),
             ],
           ),
         ),

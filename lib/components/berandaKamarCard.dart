@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HotelDataCard extends StatelessWidget {
+class BerandaKamarCard extends StatelessWidget {
   String kamarName;
   String kamarImg;
   String kamarHarga;
   String kamarType;
   String kamarDeskripsi;
 
-  HotelDataCard({
+  BerandaKamarCard({
     required this.kamarName,
     required this.kamarImg,
     required this.kamarHarga,
     required this.kamarType,
     required this.kamarDeskripsi,
   });
+
   Color mainColor = Color.fromRGBO(35, 33, 83, 1);
   Color secColor = Color.fromRGBO(250, 235, 239, 1);
 

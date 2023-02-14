@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart' as sql;
+import 'package:sqflite/sqflite.dart';
 
 class SQLHelper {
   static Future<void> createTables(sql.Database database) async {
@@ -34,6 +35,60 @@ class SQLHelper {
     final id = await db.insert('kamar', data,
         conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return id;
+  }
+
+  static Future<void> insertData() async {
+    final db = await SQLHelper.db();
+    List<Map<String, dynamic>> data = [
+      {
+        'kamarName': "Standard Single",
+        'kamarImg':
+            "https://purnamabaligehotel.com/wp-content/uploads/2023/02/STANDAR-SINGLE-ROOM-1-1024x461.jpg",
+        'kamarHarga': "Rp. 450.000 / Malam",
+        'kamarType': "Standard Room",
+        'kamarDeskripsi': "16 m2 , Kapasitas 1 Orang"
+      },
+      {
+        'kamarName': "Standard Twin",
+        'kamarImg':
+            "https://purnamabaligehotel.com/wp-content/uploads/2023/02/Standard-double2-1024x819.png",
+        'kamarHarga': "Rp. 500.000 / Malam",
+        'kamarType': "Standard Room",
+        'kamarDeskripsi': "16 m2 , Kapasitas 1 Orang"
+      },
+      {
+        'kamarName': "Deluxe Room",
+        'kamarImg':
+            "https://purnamabaligehotel.com/wp-content/uploads/2023/02/1660638916746-1-1024x576.jpg",
+        'kamarHarga': "Rp. 600.000 / Malam",
+        'kamarType': "Deluxe Room",
+        'kamarDeskripsi': "20 m2, Kapasitas 2 Orang"
+      },
+      {
+        'kamarName': "VIP Standard",
+        'kamarImg':
+            "https://purnamabaligehotel.com/wp-content/uploads/2023/02/VIP-with-View4-1024x768.png",
+        'kamarHarga':
+            "Rp 1.300.000 / malam (Jumat - Minggu) / (Peak Season)\n Rp. 1.000.000 / malam (Senin - Kamis)",
+        'kamarType': "VIP Room",
+        'kamarDeskripsi': "24 m2, Kapasitas 2 Orang\n Tidak Ada Lake View"
+      },
+      {
+        'kamarName': "VIP Luxury",
+        'kamarImg':
+            "https://purnamabaligehotel.com/wp-content/uploads/2023/02/VIP-with-View2-1024x819.png",
+        'kamarHarga':
+            "Rp 1.500.000 / malam (Jumat - Minggu) / (Peak Season)\n Rp. 1.300.000 / malam (Senin - Kamis)",
+        'kamarType': "VIP Room",
+        'kamarDeskripsi': "24 m2, Kapasitas 2 Orang\n Tidak Ada Lake View"
+      }
+    ];
+
+    sql.Batch batch = db.batch();
+    data.forEach((element) {
+      batch.insert('kamar', element);
+    });
+    await batch.commit();
   }
 
   static Future<List<Map<String, dynamic>>> getItems() async {
