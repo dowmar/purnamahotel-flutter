@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hotel_flutter/admin_pesanan.dart';
 import 'package:hotel_flutter/settings/sql_helper.dart';
 
-class AdminPage extends StatefulWidget {
-  const AdminPage({Key? key}) : super(key: key);
+class AdminPesananPage extends StatefulWidget {
+  const AdminPesananPage({Key? key}) : super(key: key);
 
   @override
-  _AdminPageState createState() => _AdminPageState();
+  _AdminPesananPageState createState() => _AdminPesananPageState();
 }
 
-class _AdminPageState extends State<AdminPage> {
+class _AdminPesananPageState extends State<AdminPesananPage> {
   // All Kamars
   List<Map<String, dynamic>> _kamardata = [];
 
@@ -170,7 +169,7 @@ class _AdminPageState extends State<AdminPage> {
       appBar: AppBar(
         backgroundColor: mainColor,
         title: Text(
-          "Edit Room",
+          "Edit Pesanan",
           style: GoogleFonts.openSans(
             fontSize: 24,
             color: secColor,
@@ -180,18 +179,15 @@ class _AdminPageState extends State<AdminPage> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.bed_outlined),
             onPressed: () {
-              // Add your logic here
+              Navigator.of(context).pop();
             },
           ),
           IconButton(
             icon: Icon(Icons.file_copy_outlined),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AdminPesananPage()),
-              );
+              // Add your logic here
             },
           ),
         ],
