@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_flutter/admin.dart';
 import 'package:hotel_flutter/gallery.dart';
 import 'package:hotel_flutter/kamarlist.dart';
 import 'package:hotel_flutter/profile.dart';
@@ -17,7 +18,8 @@ class NavBottomState extends State<NavBottom> {
     BerandaHotel(),
     KamarList(),
     KamarGallery(),
-    Profile()
+    Profile(),
+    AdminPage()
   ];
   List<IconData> data = [
     Icons.home_outlined,
@@ -71,6 +73,10 @@ class NavBottomState extends State<NavBottom> {
                   BottomNavigationBarItem(
                     icon: Icon(Icons.info_outline),
                     label: "About Us",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.person_2_outlined),
+                    label: "Admin",
                   ),
                 ],
               ),

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hotel_flutter/settings/sql_helper.dart';
-import 'components/kamarCard.dart';
 import 'components/mainAppBar.dart';
 
 class Profile extends StatefulWidget {

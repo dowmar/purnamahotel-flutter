@@ -12,6 +12,15 @@ class SQLHelper {
       kamarType TEXT,
       kamarDeskripsi TEXT,
       createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)""");
+    await database.execute("""CREATE TABLE pesanan(
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      userName TEXT,
+      userPhone TEXT,
+      kamarName TEXT,
+      kamarImg TEXT,
+      kamarHarga TEXT,
+      kamarType TEXT,
+      createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)""");
   }
 
   static Future<sql.Database> db() async {
@@ -33,6 +42,21 @@ class SQLHelper {
       'kamarDeskripsi': kamarDeskripsi
     };
     final id = await db.insert('kamar', data,
+        conflictAlgorithm: sql.ConflictAlgorithm.replace);
+    return id;
+  }
+  static Future<int> createPesanan(String userName, String userPhone, String kamarName, String? kamarImg,
+      String kamarHarga, String kamarType) async {
+    final db = await SQLHelper.db();
+    final data = {
+      'userName': userName,
+      'userPhone': userPhone,
+      'kamarName': kamarName,
+      'kamarImg': kamarImg,
+      'kamarHarga': kamarHarga,
+      'kamarType': kamarType
+    };
+    final id = await db.insert('pesanan', data,
         conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return id;
   }
